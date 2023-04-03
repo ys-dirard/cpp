@@ -73,7 +73,8 @@ void err() {
 }
 /* #endregion*/
 
-int A, B, C;
+int N;
+string S;
 
 int main(){
     /* #region cin cout settings */
@@ -81,9 +82,11 @@ int main(){
     cin.tie(0);
     cout.tie(0);
     /* #endregion */
-    cin >> A >> B >> C;
-    
-    bool flg = A*A + B*B < C*C;
-
+    cin >> N >> S;
+    bool flg = true;
+    rep(i, 1, S.size()){
+        flg &= (S[i]!=S[i-1]);
+    }
     yesno(flg);
+    return 0;
 }

@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/* #region modint */
 constexpr int mod = 1000000007;
+// constexpr int mod = 998244353;
 class mint {
 public:
     long long x;
@@ -57,6 +59,7 @@ ostream& operator<<(ostream& os, const mint& m){
     os << m.x;
     return os;
 }
+/* #endregion */
 
 // combination
 mint ncr(mint* fact, int n, int r){

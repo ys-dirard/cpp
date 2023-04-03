@@ -7,17 +7,17 @@ template <typename T>
 class SegmentTree {
 public:
 	vector<T> dat;
-    T siz = 1;
+    int siz = 1;
 
 	// 要素 dat の初期化を行う（最初は全部ゼロ）
-	void init(T N) {
+	void init(int N) {
 		siz = 1;
 		while (siz < N) siz *= 2;
 		dat = vector<T>(siz*2, 0);
 	}
 
 	// pos番目の値を更新
-	void update(T pos, T x) {
+	void update(int pos, T x) {
 		pos = pos + siz - 1;
 		dat[pos] = x;
 		while (pos >= 2) {
@@ -28,10 +28,10 @@ public:
 
 	// 区間[l, r) 内の合計を返す
 	// u は現在のセル番号、[a, b) はセルに対応する半開区間、[l, r) は求めたい半開区間
-	T query(T l, T r, T a, T b, T u) {
+	T query(int l, int r, int a, int b, int u) {
 		if (r <= a || b <= l) return 0; // 一切含まれない場合
 		if (l <= a && b <= r) return dat[u]; // 完全に含まれる場合
-		T m = (a + b) / 2;
+		int m = (a + b) / 2;
 		T AnswerL = query(l, r, a, m, u * 2);
 		T AnswerR = query(l, r, m, b, u * 2 + 1);
 		return AnswerL + AnswerR;

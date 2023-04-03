@@ -30,7 +30,7 @@ using namespace std;
 #define ub(c, x) distance((c).begin(), upper_bound(all(c), (x)))
 // rng(l, r) = [l, r]
 #define rng(v, l, r) v.begin() + (l), v.begin() + (r)
-#define all(c) begin(c), end(c)
+// #define all(c) begin(c), end(c)
 #define rall(c) rbegin(c), rend(c)
 #define vec(type, name, ...) vector<type> name(__VA_ARGS__)
 #define vv(type, name, h, ...) vector<vector<type>> name(h, vector<type>(__VA_ARGS__))
@@ -73,16 +73,8 @@ void err() {
 }
 /* #endregion*/
 
-int N, Q;
-string S;
-int T[300009], A[300009], B[300009];
-
-void print(bool front){
-    if(front) cout << S << endl;
-    else{
-        cout << S.substr(N) << S.substr(0, N) << endl;
-    }
-}
+ll N, X;
+ll A[200009];
 
 int main(){
     /* #region cin cout settings */
@@ -90,27 +82,17 @@ int main(){
     cin.tie(0);
     cout.tie(0);
     /* #endregion */
-    cin >> N >> S >> Q;
-    rep(i, 1, Q+1) cin >> T[i] >> A[i] >> B[i];
-    
-    bool front = 1;
-    rep(i, 1, Q+1){
-        if(T[i]==1){
-            if(front){
-                swap(S[A[i]-1], S[B[i]-1]);
-            }else{
-                int a = (N + A[i] - 1)% (2*N);
-                int b = (N + B[i] - 1)% (2*N);
-                swap(S[a], S[b]);
-            }
-        }else{
-            front = 1 - front;
-        }
-        // print(front);
+    cin >> N >> X;
+    rep(i, 1, N+1){
+        cin >> A[i];
     }
+    sort(A+1, A+N+1);
 
-    if(front) cout << S << endl;
-    else{
-        cout << S.substr(N) << S.substr(0, N) << endl;
+    bool flg = false;
+    rep(i, 1, N+1){
+        ll j = lower_bound(A+1, A+N+1, A[i]-X) - A;
+        flg |= (A[i]-X == A[j]);
     }
+    yesno(flg);
+    return 0;
 }

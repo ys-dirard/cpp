@@ -63,6 +63,11 @@ int main(){
     for(T i=0;i<=bs.all();i++){
         // 各要素についての処理
         cout << i << endl;
+        for(int j=0;j<N;j++){
+            if(i&(1<<j)){
+                // 処理
+            }
+        }
     }
 
     // Sの部分集合についての探索
@@ -71,6 +76,11 @@ int main(){
     do{
         // 部分集合に対する処理
         cout << sub << endl;
+        for(int i=0;i<N;i++){
+            if(sub&(1<<i)){
+                // 処理
+            }
+        }
 
         sub = (sub - 1) & S;
     }while(sub != S); // 0の次は-1 & S = Sになる
@@ -81,6 +91,11 @@ int main(){
     while(comb <= bs.all()){
         // ここで組み合わせに対して処理をする
         cout << comb << endl;
+        for(int i=0;i<N;i++){
+            if(comb&(1<<i)){
+                // 処理
+            }
+        }
 
         T x = comb & -comb; // 最下位の1のビットを独立させる
         T y = comb + x; // 最下位の1の連続している区間を0にする(1つ下位から上位に移動)

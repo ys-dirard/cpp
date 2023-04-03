@@ -73,8 +73,7 @@ void err() {
 }
 /* #endregion*/
 
-int N;
-int A[109], B[109];
+string S[10];
 
 int main(){
     /* #region cin cout settings */
@@ -82,15 +81,16 @@ int main(){
     cin.tie(0);
     cout.tie(0);
     /* #endregion */
-    // ll h, w; cin >> h >> w;
-    cin >> N;
-    rep(i, 1, N+1) cin >> A[i];
-    rep(i, 1, N+1) cin >> B[i];
-    
-    int maxA=0, minB=1000000;
-    rep(i, 1, N+1){
-        chmax(maxA, A[i]);
-        chmin(minB, B[i]);
+    rep(i, 1, 9){
+        cin >> S[9-i];
     }
-    cout << ((minB>=maxA) ? (minB - maxA + 1) : 0) << endl;
+    rep(i, 1, 9){
+        rep(j, 0, 8){
+            if(S[i][j]=='*'){
+                cout << (char)('a'+j) << i << endl;
+                return 0;
+            }
+        }
+    }
+    return 0;
 }

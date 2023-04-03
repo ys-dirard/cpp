@@ -30,7 +30,7 @@ using namespace std;
 #define ub(c, x) distance((c).begin(), upper_bound(all(c), (x)))
 // rng(l, r) = [l, r]
 #define rng(v, l, r) v.begin() + (l), v.begin() + (r)
-#define all(c) begin(c), end(c)
+// #define all(c) begin(c), end(c)
 #define rall(c) rbegin(c), rend(c)
 #define vec(type, name, ...) vector<type> name(__VA_ARGS__)
 #define vv(type, name, h, ...) vector<vector<type>> name(h, vector<type>(__VA_ARGS__))
@@ -73,53 +73,95 @@ void err() {
 }
 /* #endregion*/
 
-int N, M;
-int A[200], B[200];
-vi g[29];
-ll c[29]; // 100:未訪問, <100:組み合わせ数
-
-void dfs(int s){
-    if(c[s]<100) return;
-    ll sc = 3;
-    for(int i=0;i<g[s].size();i++){
-        if(c[g[s][i]] < 100) sc--;
+/* #region modint */
+constexpr int mod = 1000000007;
+// constexpr int mod = 998244353;
+class mint {
+public:
+    long long x;
+    constexpr mint(long long x=0) : x((x%mod+mod)%mod) {}
+    constexpr mint operator-() const { 
+      return mint(-x);
     }
-    c[s] = (sc>0) ? sc : 0;
-
-    for(int i=0;i<g[s].size();i++){
-        int t = g[s][i];
-        if(c[t] < 100) continue;
-        dfs(t);
+    constexpr mint& operator+=(const mint& a) {
+        if ((x += a.x) >= mod) x -= mod;
+        return *this;
     }
+    constexpr mint& operator-=(const mint& a) {
+        if ((x += mod-a.x) >= mod) x -= mod;
+        return *this;
+    }
+    constexpr mint& operator*=(const mint& a) {
+        (x *= a.x) %= mod;
+        return *this;
+    }
+    constexpr mint operator+(const mint& a) const {
+        mint res(*this);
+        return res+=a;
+    }
+    constexpr mint operator-(const mint& a) const {
+        mint res(*this);
+        return res-=a;
+    }
+    constexpr mint operator*(const mint& a) const {
+        mint res(*this);
+        return res*=a;
+    }
+    constexpr mint pow(long long t) const {
+        if (!t) return 1;
+        mint a = pow(t>>1);
+        a *= a;
+        if (t&1) a *= *this;
+        return a;
+    }
+
+    // for prime mod
+    constexpr mint inv() const {
+        return pow(mod-2);
+    }
+    constexpr mint& operator/=(const mint& a) {
+        return (*this) *= a.inv();
+    }
+    constexpr mint operator/(const mint& a) const {
+        mint res(*this);
+        return res/=a;
+    }
+};
+ostream& operator<<(ostream& os, const mint& m){
+    os << m.x;
+    return os;
 }
+/* #endregion */
+
+ll N, M;
+ll ans = 1e18;
 
 int main(){
-    /* #region cin cout settings */
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
-    /* #endregion */
     cin >> N >> M;
-    rep(i, 1, M+1){
-        cin >> A[i] >> B[i];
-        g[A[i]].push_back(B[i]);
-        g[B[i]].push_back(A[i]);
-    }
+    // double mn = sqrt(M);
+    ll mn = ceil(1.0*M/N);
+    ll rt = ceil(sqrt(M));
     
-    memset(c, 100, sizeof(c));
-    for(int i=1;i<=N;i++){
-        dfs(i);
+    if(N>=M){
+        cout << M << endl;
+        return 0;
     }
 
-    ll ans = 1LL;
-    for(int i=1;i<=N;i++){
-        ans *= c[i];
+    if(N<mn){
+        cout << -1 << endl;
+        return 0;
+    }
+
+    for(ll a=1;a<=1e6;a++){
+        ll b = ceil(1.0*M/a);
+        if(b>N || a>b) continue;
+        // if(ans < a*b) cout << ans << endl;
+        chmin(ans, a*b);
+        // if(ans==M){
+        //     cout << ans << endl;
+        //     return 0;
+        // }
     }
     cout << ans << endl;
-
-    // for(int i=1;i<=N;i++){
-    //     cout << c[i] << " ";
-    // }
-    // cout << endl;
     return 0;
 }
