@@ -9,8 +9,12 @@
     // "environment": [],
     // "externalConsole": true,
     "MIMode": "gdb",
+<<<<<<< HEAD
     // "miDebuggerPath": "/usr/bin/gdb",
     "miDebuggerPath": "C:\\Tools\\mingw64\\bin\\gdb.exe",
+=======
+    "miDebuggerPath": "C:\\tools\\mingw64\\bin\\gdb.exe",
+>>>>>>> 35b044b98767a60c952816f0045e3240037d7715
     "setupCommands": [
         {
             "description": "Enable pretty-printing for gdb",
@@ -19,7 +23,10 @@
         }
     ],
     "configurations": [
+<<<<<<< HEAD
 
+=======
+>>>>>>> 35b044b98767a60c952816f0045e3240037d7715
         {
             "name": "(gdb) Launch",
             "type": "cppvsdbg",

@@ -99,11 +99,15 @@
         "xutility": "cpp",
         "resumable": "cpp",
         "fenwicktree": "cpp",
+<<<<<<< HEAD
         "coroutine": "cpp",
         "filesystem": "cpp",
         "span": "cpp",
         "ranges": "cpp",
         "stacktrace": "cpp"
+=======
+        "coroutine": "cpp"
+>>>>>>> 35b044b98767a60c952816f0045e3240037d7715
     },
     // "C_Cpp.errorSquiggles": "disabled",
 }

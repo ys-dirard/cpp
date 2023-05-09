@@ -3,7 +3,11 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe アクティブなファイルのビルド",
+<<<<<<< HEAD
             "command": "C:\\Tools\\mingw64\\bin\\g++.exe",
+=======
+            "command": "C:\\tools\\mingw64\\bin\\g++.exe",
+>>>>>>> 35b044b98767a60c952816f0045e3240037d7715
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
@@ -22,6 +26,7 @@
                 "isDefault": true
             },
             "detail": "デバッガーによって生成されたタスク。"
+<<<<<<< HEAD
         },
         {
             "type": "cppbuild",
@@ -42,6 +47,8 @@
             ],
             "group": "build",
             "detail": "コンパイラ: /usr/bin/g++"
+=======
+>>>>>>> 35b044b98767a60c952816f0045e3240037d7715
         }
     ],
     "version": "2.0.0"

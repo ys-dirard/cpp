@@ -4,7 +4,14 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
+<<<<<<< HEAD
                 "C://Tools/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/**"
+=======
+                "C://tools/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/**"
+                // "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/**",
+                // "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/atcoder",
+                // "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/atcoder/**"
+>>>>>>> 35b044b98767a60c952816f0045e3240037d7715
             ],
             "defines": [
                 "_DEBUG",
@@ -15,6 +22,7 @@
             "compilerPath": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.34.31933/bin/Hostx64/x64/cl.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
+<<<<<<< HEAD
             "intelliSenseMode": "windows-msvc-x64"
         },
         {
@@ -27,6 +35,9 @@
             "cStandard": "c17",
             "cppStandard": "gnu++17",
             "intelliSenseMode": "linux-gcc-x64"
+=======
+            "intelliSenseMode": "windows-msvc-x64" // "windows-msvc-x64"
+>>>>>>> 35b044b98767a60c952816f0045e3240037d7715
         }
     ],
     "version": 4
