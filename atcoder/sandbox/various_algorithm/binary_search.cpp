@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool solve(int m){
+bool solve(long long m){
 
 }
 
@@ -10,8 +10,8 @@ bool solve(int m){
 // 半開区間(ng, ok] or [ok, ng)を考える
 // 解であるかどうかはsolve関数(別途用意)で判定
 // -> mが解であればtrueを返す
-int binary_search(int ok, int ng){
-    int mid;
+long long bin_search(long long ok, long long ng){
+    long long mid;
     while(abs(ok - ng) > 1){
         mid = (ok + ng) / 2;
 
@@ -21,7 +21,7 @@ int binary_search(int ok, int ng){
             ng = mid;
         }
     }
-    return mid;
+    return ok;
 }
 
 int main(){

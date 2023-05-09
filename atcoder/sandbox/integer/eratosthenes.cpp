@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-// Basec version
+// Basic version
 // 1 以上 N 以下の整数が素数かどうかを返す (O(N log log N))
 vector<bool> Eratosthenes(long long N) {
     // 素数の数

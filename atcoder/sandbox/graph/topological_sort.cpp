@@ -40,3 +40,45 @@ int main(){
     cout << endl;
     return 0;
 }
+
+
+// BFS版、queueをpriority_queueにすると辞書順にソート可能！
+// using Graph = vector<vector<int>>;
+
+// int main() {
+//     // 頂点数と辺数
+//     int N, M; cin >> N >> M;
+
+//     // グラフ入力受取
+//     Graph G(N+1);
+//     vector<int> deg(N+1, 0); // 各頂点の出次数
+//     for (int i = 1; i <= M; ++i) {
+//         int a, b;
+//         cin >> a >> b;
+//         G[a].push_back(b); // 辺を張る
+//         deg[b]++; // 入次数
+//     }
+
+//     // シンクたちをキューに挿入する
+//     queue<int> que;
+//     for (int i = 1; i <= N; ++i) if (deg[i] == 0) que.push(i);
+
+//     // 探索開始
+//     vector<int> order;
+//     while (!que.empty()) {
+//         // キューから頂点を取り出す
+//         int v = que.front(); que.pop();
+//         order.push_back(v);
+
+//         // v へと伸びている頂点たちを探索する
+//         for (auto nv : G[v]) {
+//             // 辺 (nv, v) を削除する
+//             --deg[nv];
+
+//             // それによって nv が新たにシンクになったらキューに挿入
+//             if (deg[nv] == 0) que.push(nv); 
+//         }
+//     }
+
+//     return 0;
+// }
